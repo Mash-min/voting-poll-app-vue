@@ -11,7 +11,7 @@
           </small>
         </span>
         <br>
-        <small class="text-muted"><i class="fa fa-user-o"></i> Mashiyyat - {{ poll.created_at }}</small>
+        <small class="text-muted"><i class="fa fa-user-o"></i> {{ poll.user.username }} - {{ poll.created_at }}</small>
         <div class="list-group mt-3">
           <button 
             class="list-group-item list-group-item-action"
