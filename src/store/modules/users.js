@@ -73,12 +73,13 @@ const actions = {
     }
   },
 
-  async checkToken() {
+  async checkToken({ commit }) {
     try {
       await axios.get('api/users')
     } catch (e) {
       localStorage.removeItem('token')
       router.push({ path: '/' })
+      commit('setAuthenticatedUser', false)
       console.clear()
     }
   }
