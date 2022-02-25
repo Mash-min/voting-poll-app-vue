@@ -1,5 +1,6 @@
 import axios from "axios"
 import router from '@/router'
+import Swal from "sweetalert2"
 
 const state = {
   user: {
@@ -43,14 +44,11 @@ const actions = {
 
   async loginUser(_, payload) {
     try {
-      const response = await axios.post('api/users/login', {
-        username: payload.username,
-        password: payload.password
-      })
+      const response = await axios.post('api/users/login', payload)
       localStorage.setItem('token', response.data.token)
       window.location.href = "/polls"
     } catch (e) {
-      console.error(e.response)
+      Swal.fire(e.response.data.message)
     }
   },
 
