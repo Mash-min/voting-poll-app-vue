@@ -27,7 +27,6 @@ const actions = {
       const response = await axios.get(url)
       commit('setPolls', response.data.polls.data)
       commit('setPollLinks', response.data.polls.links)
-      console.log(response)
       window.scrollTo(0, 0)
     } catch (e) {
       console.error(e)
